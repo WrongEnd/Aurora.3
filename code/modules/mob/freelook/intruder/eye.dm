@@ -88,7 +88,7 @@ mob/intruder_eye
 
 // Spawn the actual eye.
 
-/mob/dead/intruder/proc/destroy_eyeobj(var/atom/new_eye)
+/mob/living/intruder/proc/destroy_eyeobj(var/atom/new_eye)
 	if(!eyeobj) return
 	if(!new_eye)
 		new_eye = src
@@ -98,7 +98,7 @@ mob/intruder_eye
 	if(client)
 		client.eye = new_eye
 
-/mob/dead/intruder/proc/create_eyeobj(atom/newloc)
+/mob/living/intruder/proc/create_eyeobj(atom/newloc)
 	if(eyeobj) destroy_eyeobj()
 	if(!newloc) newloc = src.loc
 	eyeobj = new /mob/intruder_eye(newloc)
@@ -107,7 +107,7 @@ mob/intruder_eye
 	if(client) client.eye = eyeobj
 
 // Intiliaze the eye by assigning it's "ai" variable to us. Then set it's loc to us.
-/mob/dead/intruder/Initialize()
+/mob/living/intruder/Initialize()
 	. = ..()
 	var/cur_z = pick(current_map.station_levels)
 	create_eyeobj(locate(Floor(world.maxx/2), Floor(world.maxy/2), cur_z))

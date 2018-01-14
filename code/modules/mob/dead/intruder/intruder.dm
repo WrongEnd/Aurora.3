@@ -1,4 +1,4 @@
-/mob/dead/intruder
+/mob/living/intruder //Supposed to be dead but LOHIKAR
 	name = "intruder"
 	desc = "don't look at me"
 	status_flags = GODMODE
